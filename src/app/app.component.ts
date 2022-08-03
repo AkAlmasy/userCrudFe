@@ -1,3 +1,4 @@
+import { UserService } from './../services/user.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'userCrudFe';
+  title = 'user-crud-app';
+  
+  constructor(private userService: UserService) {
+    
+  }
+
+  ngOnInit() {
+
+    this.userService.getUsers().subscribe((result => {
+      console.log(result);
+    }));
+    console.log("asdasd");
+  }
 }
