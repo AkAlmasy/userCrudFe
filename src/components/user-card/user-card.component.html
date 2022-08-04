@@ -1,26 +1,37 @@
-<div class="content-container">
-    <div class="header">
-      <h1>The Big User List</h1>
-    </div>
-    <div class="user-list-container">
-      <mat-card *ngFor="let user of users" class="example-card">
-        <mat-card-header class="card-header">
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{user.name}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="card-content" *ngFor="let todo of user.todos">
-          <span class="todo-title">
+<mat-card>
+<mat-card-header class="card-header">
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{user.name}}</mat-card-title>
+</mat-card-header>
+<div class="card-content">
+    <mat-card-content class="todo-content" *ngFor="let todo of user.todos">
+        <span class="todo-title">
             {{todo.name}} :
-          </span>
-          <span class="todo-description">
+        </span>
+        <span class="todo-description">
             {{todo.description}}
-          </span>
-        </mat-card-content>
-        <mat-card-actions class="actions-container">
-          <button mat-button>Edit</button>
-          <button mat-button>Delete</button>
-        </mat-card-actions>
-      </mat-card>
+        </span>
+    </mat-card-content>
+    <div class="todo-add-container">
+        <div class="add-todo-name">
+            <p>Name</p>
+            <input type="text" [(ngModel)]="newTodoName">
+        </div>
+        <div class="add-todo-description">
+            <p>Description</p>
+            <input class="add-todo-desc-input" style="width: 95%;" [(ngModel)]="newTodoDesc" type="text">
+        </div>
     </div>
-  </div>
-  
+    <button mat-mini-fab color="primary" class="add-button" aria-label="Example icon button with a delete icon" (click)="setCurrentUserTodos(user)">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
+<mat-card-actions class="actions-container">
+    <button mat-mini-fab color="primary" class="delete-button" aria-label="Example icon button with a delete icon">
+        <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-mini-fab color="primary" class="edit-button" aria-label="Example icon button with a delete icon">
+    <mat-icon>edit</mat-icon>
+    </button>
+</mat-card-actions>
+</mat-card>

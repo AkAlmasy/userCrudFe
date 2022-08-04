@@ -1,1 +1,32 @@
+.content-container {
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
+    .user-content-header {
+        display: flex;
+        justify-content: center;
+        font-size: 22;
+    }
+
+    .user-list-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 90%;
+        margin: 10px;
+
+        .user-card {
+            flex: 3;
+            background-color: rgb(253, 255, 223);
+            border: 1px solid lightgray;
+            box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.38) ;
+            max-width: 550px;
+            min-width: 550px;
+            margin: 10px;
+            position: relative;
+        }
+    }
+}

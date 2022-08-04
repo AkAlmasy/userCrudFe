@@ -1,1 +1,9 @@
-<app-user-card></app-user-card>
+<app-header class="header"></app-header>
+<div class="content-container">
+  <div class="user-content-header">
+    <h1>The Big User List</h1>
+  </div>
+  <div class="user-list-container">
+    <app-user-card class="user-card" *ngFor="let user of users" [user]="user" (userValuesUpdated)="onUserUpdated($event)"></app-user-card>
+  </div>
+</div>

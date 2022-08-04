@@ -1,0 +1,11 @@
+.header-container { 
+    margin: 0px;
+    background-color: lightseagreen;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+
+    .header-title {
+        margin: 0;
+    }
+}

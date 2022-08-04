@@ -9,9 +9,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'user-crud-app';
-  
-  constructor() {
+
+  constructor(private userService: UserService) {
   }
 
-  ngOnInit() {}
+  users: User[];
+
+    ngOnInit() {
+    this.userService.getUsers().subscribe((result => {
+      this.users = result;
+    }));
+  }
+
+  onUserUpdated(updatedUsers: any) {
+    this.users = updatedUsers.users;
+  }
 }

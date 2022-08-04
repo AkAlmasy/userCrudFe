@@ -1,3 +1,4 @@
+import { User } from './../Interfaces/user';
 import { environment } from './../environments/environment.prod';
 import { Injectable } from '@angular/core';
  
@@ -14,10 +15,13 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
  
-
-
-  getUsers(): Observable<any> {
+  getUsers(): Observable<User[]> {
     console.log(environment.backendUrl)
-    return this.http.get('/api/User/getUsers');
+    return this.http.get<User[]>('/api/User/getUsers');
+  } 
+
+  updateUser(updatedUser: User): Observable<User[]> {
+    console.log(environment.backendUrl)
+    return this.http.put<User[]>('/api/User/modifyUser', updatedUser);
   } 
 }
