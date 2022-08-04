@@ -1,11 +1,8 @@
 import { User } from './../Interfaces/user';
 import { environment } from './../environments/environment.prod';
 import { Injectable } from '@angular/core';
- 
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { map, catchError} from 'rxjs/operators';
- 
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
  
 @Injectable({
   providedIn: 'root',
