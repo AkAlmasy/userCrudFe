@@ -1,0 +1,74 @@
+.content-container {
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .header {
+        display: flex;
+        justify-content: center;
+        font-size: 22;
+    }
+
+    .user-list-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 80%;
+        border: 2px solid rgb(0, 0, 143);
+        box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.38) ;
+        margin: 10px;
+        
+        .example-card {
+            flex: 3;
+            background-color: rgb(253, 255, 223);
+            border: 1px solid lightgray;
+            box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.38) ;
+            max-width: 450px;
+            min-width: 400px;
+            margin: 10px;
+            position: relative;
+
+            .example-header-image {
+              background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+              background-size: cover;
+            }
+
+            .card-header {
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .card-content{
+                display: flex;
+                margin-top: 10px;
+                margin-bottom: 15px;
+                border-bottom: 1px solid lightgray;
+
+                .todo-title {
+                    width: 30%;
+                    text-overflow: nowrap;
+                    padding: 5px;
+                    font-weight: 600;
+                }
+
+                .todo-description{
+                    width: 65%;
+                    direction: rtl;
+                    padding: 5px;
+                    word-break: break-all;
+                }   
+            }
+
+            .actions-container {
+                margin: 0;
+                position: absolute;
+                top: 5px;
+                right: 13px;
+            }
+
+          }
+          
+    }
+}

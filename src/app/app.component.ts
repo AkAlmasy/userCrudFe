@@ -1,3 +1,4 @@
+import { User } from './../Interfaces/user';
 import { UserService } from './../services/user.service';
 import { Component } from '@angular/core';
 
@@ -9,15 +10,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'user-crud-app';
   
-  constructor(private userService: UserService) {
-    
+  constructor() {
   }
 
-  ngOnInit() {
-
-    this.userService.getUsers().subscribe((result => {
-      console.log(result);
-    }));
-    console.log("asdasd");
-  }
+  ngOnInit() {}
 }
