@@ -17,6 +17,13 @@
     .card-content {
         display: flex;
         flex-direction: column;
+
+        .todos-title{
+            margin-bottom: 0;
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: 600;
+        }
     
         .todo-content{
             flex: 1 1 0px;
