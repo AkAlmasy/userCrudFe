@@ -1,37 +1,45 @@
-<mat-card>
-<mat-card-header class="card-header">
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{user.name}}</mat-card-title>
-</mat-card-header>
-<div class="card-content">
-    <mat-card-content class="todo-content" *ngFor="let todo of user.todos">
-        <span class="todo-title">
-            {{todo.name}} :
-        </span>
-        <span class="todo-description">
-            {{todo.description}}
-        </span>
-    </mat-card-content>
-    <div class="todo-add-container">
-        <div class="add-todo-name">
-            <p>Name</p>
-            <input type="text" [(ngModel)]="newTodoName">
+<mat-card class="card">
+    <mat-card-header class="card-header">
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{user.name}}</mat-card-title>
+    </mat-card-header>
+    <div class="card-content">
+        
+        <mat-card-content class="todo-content" *ngFor="let todo of currentUserTodos">
+            <span class="todo-title">
+                {{todo.name}} :
+            </span>
+            <span class="todo-description">
+                {{todo.description}}
+            </span>
+            <button mat-button>
+                <mat-icon (click)="removeFromCurrentUserTodos(todo)">delete</mat-icon>
+            </button>
+        </mat-card-content>
+        <div class="todo-add-container">
+            <div class="add-todo-name">
+                <p>Name</p>
+                <input type="text" [(ngModel)]="newTodoName">
+            </div>
+            <div class="add-todo-description">
+                <p>Description</p>
+                <input class="add-todo-desc-input" style="width: 95%;" [(ngModel)]="newTodoDesc" type="text">
+            </div>
         </div>
-        <div class="add-todo-description">
-            <p>Description</p>
-            <input class="add-todo-desc-input" style="width: 95%;" [(ngModel)]="newTodoDesc" type="text">
+        <div class="todo-actions-container">
+            <button mat-mini-fab color="primary" title="Add element to list" class="add-button"  aria-label="Example icon button with a delete icon" (click)="addToCurrentUserTodos(user)">
+                <mat-icon>add</mat-icon>
+            </button>
+            <button mat-mini-fab color="warn" title="Save and update User Todo list" class="delete-button" aria-label="Example icon button with a delete icon" (click)="saveCurrentUserTodos(user)">
+                <mat-icon>save</mat-icon>
+            </button>
         </div>
+        <div>Comments: "+" button adds latest todo element to the list. Save button finalizes removals from list made by the individual delete buttons at the end of each element</div>
     </div>
-    <button mat-mini-fab color="primary" class="add-button" aria-label="Example icon button with a delete icon" (click)="setCurrentUserTodos(user)">
-        <mat-icon>add</mat-icon>
-    </button>
-</div>
-<mat-card-actions class="actions-container">
-    <button mat-mini-fab color="primary" class="delete-button" aria-label="Example icon button with a delete icon">
-        <mat-icon>delete</mat-icon>
-    </button>
-    <button mat-mini-fab color="primary" class="edit-button" aria-label="Example icon button with a delete icon">
-    <mat-icon>edit</mat-icon>
-    </button>
-</mat-card-actions>
+    <mat-card-actions class="actions-container">
+        <button mat-mini-fab color="warn" class="delete-button" title="Delete User" aria-label="Example icon button with a delete icon" (click)="deleteUser(user)">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </mat-card-actions>
+    <mat-progress-bar mode="indeterminate" *ngIf="todosAreSaving"></mat-progress-bar>
 </mat-card>

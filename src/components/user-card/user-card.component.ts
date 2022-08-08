@@ -16,26 +16,36 @@ export class UserCardComponent implements OnInit {
   currentUserTodos: Todo[];
   newTodoName: string;
   newTodoDesc: string;
+  todosAreSaving: boolean = false;
 
   constructor(private userService: UserService) {
   }
 
   ngOnInit() {
+    this.currentUserTodos = [...this.user.todos];
+  }
+  
+  //TODO input check missing
+  addToCurrentUserTodos (currentUser: User) {
+    if (this.newTodoDesc && this.newTodoName) {
+      const newTodo: Todo = {
+        name: this.newTodoName,
+        description: this.newTodoDesc,
+      }
+      this.currentUserTodos.push(newTodo);
+      this.saveCurrentUserTodos(currentUser);
+    }
   }
 
-  //TODO input check missing
-  setCurrentUserTodos (currentUser: User) {
-    this.currentUserTodos = [...currentUser.todos];
-
-    if (this.newTodoDesc.length > 0 && this.newTodoName.length > 0) {
-      const newTodo: Todo = {name: this.newTodoName, description: this.newTodoDesc}
-      this.currentUserTodos.push(newTodo);
-    }
-    this.addNewTodo(currentUser);
+  removeFromCurrentUserTodos(todoToDelete: Todo) {
+    this.currentUserTodos.forEach( (todo, index) => {
+      if(todo === todoToDelete) this.currentUserTodos.splice(index,1);
+    });
   }
 
   //TODO Put would be better long term over for for todo updates
-  addNewTodo(currentUser: User) {
+  saveCurrentUserTodos(currentUser: User) {
+    this.todosAreSaving = true;
     const updatedUser: User = {
       name: currentUser.name,
       id: currentUser.id,
@@ -44,11 +54,16 @@ export class UserCardComponent implements OnInit {
     }
     this.userService.updateUser(updatedUser).pipe(debounceTime(500)).subscribe((result) => {
       this.userValuesUpdated.emit({users: result})
+      this.todosAreSaving = false;
     });
 
   }
   
   deleteUser(currentUser: User) {
-    //TODO add logic for user delete
+    this.todosAreSaving = true;
+    this.userService.deleteUser(currentUser.id).subscribe((result) => {
+      this.userValuesUpdated.emit({users: result})
+      this.todosAreSaving = false;
+    });
   }
 }

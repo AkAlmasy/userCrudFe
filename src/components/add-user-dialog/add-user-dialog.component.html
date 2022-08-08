@@ -1,0 +1,12 @@
+<div class="new-user-dialog-container">
+    <div class="dialog-title">
+        <h4>Enter name for the new User</h4>
+    </div>
+    <div class="dialog-input">
+        <input placeholder="Enter name here" type="text" [(ngModel)]="newUserName">  
+    </div>
+    <div class="dialog-actions">
+        <button mat-raised-button (click)="closeAddUserDialog()">Close window</button>
+        <button mat-raised-button color="primary" (click)="addUser()">Add user</button>
+    </div>
+</div>

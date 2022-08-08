@@ -4,8 +4,21 @@
     padding: 10px;
     display: flex;
     justify-content: space-between;
+    position: relative;
 
     .header-title {
         margin: 0;
+    }
+
+    .add-user-dialog{
+        position: fixed;
+        background-color: white;
+        right: 10px;
+        top: 60px;
+        height: 150px;
+        width: 250px;
+        z-index: 1;
+        border: 1px solid black;
+        box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.38) ;
     }
 }

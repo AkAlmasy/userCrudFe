@@ -1,4 +1,5 @@
-<app-header class="header"></app-header>
+<app-header class="header" (refreshList)="onUserAdded($event)"></app-header>
+<mat-progress-bar mode="indeterminate" *ngIf="userListLoading"></mat-progress-bar>
 <div class="content-container">
   <div class="user-content-header">
     <h1>The Big User List</h1>

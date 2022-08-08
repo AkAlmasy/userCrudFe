@@ -13,12 +13,19 @@ export class UserService {
   }
  
   getUsers(): Observable<User[]> {
-    console.log(environment.backendUrl)
     return this.http.get<User[]>('/api/User/getUsers');
   } 
 
   updateUser(updatedUser: User): Observable<User[]> {
-    console.log(environment.backendUrl)
+    console.log(updatedUser);
     return this.http.put<User[]>('/api/User/modifyUser', updatedUser);
+  } 
+
+  deleteUser(userId: string): Observable<User[]> {
+    return this.http.delete<User[]>(`/api/User/${userId}`);
+  } 
+
+  createUser(newUser: User): Observable<User[]> {
+    return this.http.post<User[]>('/api/User/createUser', newUser);
   } 
 }

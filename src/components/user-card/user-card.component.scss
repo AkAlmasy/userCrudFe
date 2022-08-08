@@ -1,91 +1,126 @@
-.example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-}
-.example-header-image:hover {
-    cursor: pointer;
-}
+.card {
+    height: 95%;
 
-.card-header {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.card-content {
-    display: flex;
-    flex-direction: column;
-
-    .todo-content{
-        flex: 1 1 0px;
-        display: flex;
-        margin-top: 10px;
-        margin-bottom: 15px;
-        border-bottom: 1px solid lightgray;
-
-        .todo-title {
-            width: 30%;
-            text-overflow: nowrap;
-            padding: 5px;
-            font-weight: 600;
-        }
-
-        .todo-description{
-            width: 65%;
-            direction: rtl;
-            padding: 5px;
-            word-break: break-all;
-        }   
+    .example-header-image {
+        background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+        background-size: cover;
     }
-
-    .todo-add-container {
-        display: flex;
-
-        .add-todo-name {
-            flex: 2;
-            margin-right: 5px;
-        }
-    
-        .add-todo-description {
-            flex: 8;
-        }
-
-    }
-    .add-button{
-        flex: 1 1 0px;                   
-        background-color: lightgreen;
-        margin: 5px;                   
-    }
-
-    .add-button:active {
-        transform: scale(1.2);
-        transition: ease-in-out 0.15s;
-    }
-}
-
-.actions-container {
-    margin: 0;
-    position: absolute;
-    top: 5px;
-    right: 13px;
-
-    .delete-button{
-        background-color: rgb(255, 60, 60);
-        size: 50% !important;
-        margin: 5px;
-    }
-
-    .delete-button:active {
-        transform: scale(1.2);
-        transition: ease-in-out 0.15s;
+    .example-header-image:hover {
+        cursor: pointer;
     }
     
-    .edit-button { 
-        background-color: lightblue;
-        margin: 5px;
+    .card-header {
+        font-size: 18px;
+        font-weight: bold;
     }
+    
+    .card-content {
+        display: flex;
+        flex-direction: column;
+    
+        .todo-content{
+            flex: 1 1 0px;
+            display: flex;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid lightgray;
+    
+            >button{
+                display: flex;
+                align-items: center;
+            }
+    
+            .todo-title {
+                width: 30%;
+                text-overflow: nowrap;
+                padding: 5px;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+            }
+    
+            .todo-description{
+                width: 65%;
+                direction: rtl;
+                padding: 5px;
+                word-break: break-all;
+                hyphens: auto;
+                display: flex;
+                align-items: center;
+            }   
+        }
+    
+        .todo-add-container {
+            display: flex;
+    
+            .add-todo-name {
+                flex: 2;
+                margin-right: 5px;
+    
+                >p {
+                  margin: 3px;  
+                }
+            }
+        
+            .add-todo-description {
+                flex: 8;
+               
+                >p {
+                    margin: 3px;  
+                }
+            }
+    
+        }
+        
+        .add-button:active {
+            transform: scale(1.2);
+            transition: ease-in-out 0.15s;
+        }
+        
+        .todo-actions-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+    
+            .add-button{
+                flex: 1 1 0px;
+                max-width: 40px;                   
+                background-color: lightgreen;
+                margin: 10px;               
+            }
 
-    .edit-button:active {
-        transform: scale(1.2);
-        transition: ease-in-out 0.15s;
+            .delete-button{
+                background-color: rgb(255, 60, 60);
+                size: 50% !important;
+                margin: 10px;
+            }
+        
+            .delete-button:active {
+                transform: scale(1.2);
+                transition: ease-in-out 0.15s;
+            }
+            
+        }
     }
-}       
+    
+    .actions-container {
+        margin: 0;
+        position: absolute;
+        top: 5px;
+        right: 13px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+              
+        .edit-button { 
+            background-color: lightblue;
+            margin: 5px;
+        }
+    
+        .edit-button:active {
+            transform: scale(1.2);
+            transition: ease-in-out 0.15s;
+        }
+    }       
+}
